@@ -4,10 +4,12 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Project } from "@prisma/client";
 import { COVER_TONES, PROJECT_STATUSES, statusLabel } from "@/lib/types";
+import { PicturesField } from "@/components/pictures-field";
 
 export function ProjectForm({ project }: { project?: Project }) {
   const router = useRouter();
   const [error, setError] = useState("");
+  const [pictures, setPictures] = useState<string[]>(project?.pictures ?? []);
   const [loading, setLoading] = useState(false);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -120,6 +122,7 @@ export function ProjectForm({ project }: { project?: Project }) {
         <Field label="GitHub URL" name="repoUrl" defaultValue={project?.repoUrl ?? ""} />
         <Field label="Live URL" name="liveUrl" defaultValue={project?.liveUrl ?? ""} />
       </div>
+      <PicturesField value={pictures} onChange={setPictures} />
       <label className="flex items-center gap-2 text-sm">
         <input
           type="checkbox"

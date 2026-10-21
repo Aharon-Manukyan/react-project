@@ -17,6 +17,7 @@ model Project {
   stack       String
   status      String
   year        Int
+  pictures    String[] @default([])  
   repoUrl     String?
   liveUrl     String?
   featured    Boolean  @default(false)

@@ -29,4 +29,5 @@ export const projectSchema = z.object({
   liveUrl: z.string().trim().optional().or(z.literal("")),
   featured: z.boolean().default(false),
   coverTone: z.enum(COVER_TONES).default("ember"),
+  pictures: z.array(z.string()).default([]), // новое поле
 });

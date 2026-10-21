@@ -4,17 +4,17 @@ const prisma = new PrismaClient();
 
 const projects = [
   {
-    slug: "pulse-board",
-    title: "Pulse Board",
+    slug: "fika-eatery2",
+    title: "Fika Eatery",
     summary:
-      "Канбан для продуктовых команд: статусы, фильтры и живые метрики спринта.",
+      "Fika Eatery is all about great food, a cozy atmosphere, and a sense of community. With a focus on handcrafted flavors, it offers a modern yet welcoming space where brunch, desserts, and fresh daily bakes come together. ",
     description:
-      "Full-stack доска задач с REST API, фильтрами по статусу и ролью администратора. Данные живут в SQLite через Prisma, интерфейс собран на Next.js App Router. Проект показывает CRUD, валидацию Zod и работу с сессиями.",
+      "For the main logo, we chose a serif typeface that highlights the brand’s premium feel and evokes the essence of classic French cuisine, reminiscent of traditional bakery signs. For the secondary logo, we incorporated negative space between the letters to subtly form the outline of a cat’s face—an important symbol of the brand",
     stack: "Next.js,TypeScript,Prisma,SQLite,Zod",
     status: "shipped",
-    year: 2026,
-    repoUrl: "https://github.com/Aharon-Manukyan/react-project",
-    liveUrl: null,
+    year: 2025,
+    repoUrl: "https://www.behance.net/gallery/218792373/Fika-Eatery-branding",
+    liveUrl: "https://www.instagram.com/fika_eatery/",
     featured: true,
     coverTone: "ember",
   },
