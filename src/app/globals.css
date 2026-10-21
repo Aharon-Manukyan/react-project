@@ -37,8 +37,7 @@ body {
   min-height: 100%;
   background:
     radial-gradient(1200px 500px at 10% -10%, rgba(217, 119, 87, 0.16), transparent 50%),
-    radial-gradient(900px 400px at 100% 0%, rgba(196, 165, 116, 0.1), transparent 45%),
-    var(--bg);
+    radial-gradient(900px 400px at 100% 0%, rgba(196, 165, 116, 0.1), transparent 45%), var(--bg);
   color: var(--paper);
   font-family: var(--font-sans), sans-serif;
 }

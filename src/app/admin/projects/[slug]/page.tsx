@@ -5,9 +5,7 @@ import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-export default async function EditProjectPage({
-  params,
-}: PageProps<"/admin/projects/[slug]">) {
+export default async function EditProjectPage({ params }: PageProps<"/admin/projects/[slug]">) {
   if (!(await isAdmin())) redirect("/admin/login");
   const { slug } = await params;
   const project = await prisma.project.findUnique({ where: { slug } });

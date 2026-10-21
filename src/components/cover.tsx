@@ -39,8 +39,8 @@ export function Cover({
     <div
       className={`relative isolate overflow-hidden rounded-[1.5rem] bg-linear-to-br ${gradient} min-h-44`}
     >
-      <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px]" />
-      <p className="absolute bottom-4 left-4 right-4 font-serif text-2xl leading-none tracking-tight text-white/90">
+      <div className="absolute inset-0 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:18px_18px] opacity-30" />
+      <p className="absolute right-4 bottom-4 left-4 font-serif text-2xl leading-none tracking-tight text-white/90">
         {title}
       </p>
     </div>

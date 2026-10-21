@@ -25,10 +25,7 @@ export async function POST(request: Request) {
 
   const ext = ALLOWED[file.type];
   if (!ext) {
-    return NextResponse.json(
-      { error: "Нужен JPG, PNG или WebP" },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Нужен JPG, PNG или WebP" }, { status: 400 });
   }
   if (file.size > 4 * 1024 * 1024) {
     return NextResponse.json({ error: "Файл больше 4 МБ" }, { status: 413 });

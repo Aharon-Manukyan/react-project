@@ -79,11 +79,15 @@ export function PicturesField({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={src} alt="" className="aspect-[4/3] w-full rounded-xl object-cover" />
             <div className="flex justify-between">
-              <button type="button" onClick={() => move(i, -1)}>←</button>
+              <button type="button" onClick={() => move(i, -1)}>
+                ←
+              </button>
               <button type="button" onClick={() => onChange(value.filter((_, k) => k !== i))}>
                 Удалить
               </button>
-              <button type="button" onClick={() => move(i, 1)}>→</button>
+              <button type="button" onClick={() => move(i, 1)}>
+                →
+              </button>
             </div>
           </div>
         ))}

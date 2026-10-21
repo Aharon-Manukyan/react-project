@@ -16,15 +16,13 @@ export default async function Home() {
     <main>
       <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
         <div>
-          <p className="text-xs tracking-[0.28em] text-gold uppercase">
-            Валентина Палатурян
-          </p>
+          <p className="text-xs tracking-[0.28em] text-gold uppercase">Валентина Палатурян</p>
           <h1 className="mt-4 max-w-xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl">
             Brand Designer — Portfolio.
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-8 text-muted">
-            Портфолио с живой базой, публичным API и админкой. Не лендинг-макет:
-            заявки сохраняются, кейсы редактируются, стек настоящий.
+            Портфолио с живой базой, публичным API и админкой. Не лендинг-макет: заявки сохраняются,
+            кейсы редактируются, стек настоящий.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -66,10 +64,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section
-        id="contact"
-        className="mx-auto grid max-w-6xl gap-10 px-6 pb-24 lg:grid-cols-2"
-      >
+      <section id="contact" className="mx-auto grid max-w-6xl gap-10 px-6 pb-24 lg:grid-cols-2">
         <div>
           <h2 className="font-serif text-4xl">Давайте поговорим о вашем проекте</h2>
           <p className="mt-4 max-w-md text-muted">

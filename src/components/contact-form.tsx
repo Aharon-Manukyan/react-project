@@ -3,9 +3,7 @@
 import { FormEvent, useState } from "react";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">(
-    "idle",
-  );
+  const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [message, setMessage] = useState("");
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -76,9 +74,7 @@ export function ContactForm() {
       >
         {status === "loading" ? "Отправка..." : "Отправить заявку"}
       </button>
-      {message ? (
-        <p className={status === "ok" ? "text-sage" : "text-ember"}>{message}</p>
-      ) : null}
+      {message ? <p className={status === "ok" ? "text-sage" : "text-ember"}>{message}</p> : null}
     </form>
   );
 }

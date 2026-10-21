@@ -32,14 +32,11 @@ export function ProjectForm({ project }: { project?: Project }) {
       pictures: pictures,
     };
 
-    const response = await fetch(
-      project ? `/api/projects/${project.slug}` : "/api/projects",
-      {
-        method: project ? "PATCH" : "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      },
-    );
+    const response = await fetch(project ? `/api/projects/${project.slug}` : "/api/projects", {
+      method: project ? "PATCH" : "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
     if (!response.ok) {
       const body = (await response.json()) as { error?: string };
@@ -77,12 +74,7 @@ export function ProjectForm({ project }: { project?: Project }) {
           className="rounded-2xl border border-line bg-bg px-4 py-3 outline-none focus:border-gold"
         />
       </label>
-      <Field
-        label="Стек через запятую"
-        name="stack"
-        defaultValue={project?.stack}
-        required
-      />
+      <Field label="Стек через запятую" name="stack" defaultValue={project?.stack} required />
       <div className="grid gap-4 sm:grid-cols-3">
         <label className="grid gap-2 text-sm">
           Статус
@@ -125,11 +117,7 @@ export function ProjectForm({ project }: { project?: Project }) {
       </div>
       <PicturesField value={pictures} onChange={setPictures} />
       <label className="flex items-center gap-2 text-sm">
-        <input
-          type="checkbox"
-          name="featured"
-          defaultChecked={project?.featured}
-        />
+        <input type="checkbox" name="featured" defaultChecked={project?.featured} />
         Показать на главной
       </label>
       <div className="flex flex-wrap gap-3">

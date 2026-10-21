@@ -2,13 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-export function ProjectGallery({
-  pictures,
-  title,
-}: {
-  pictures: string[];
-  title: string;
-}) {
+export function ProjectGallery({ pictures, title }: { pictures: string[]; title: string }) {
   const [index, setIndex] = useState(0);
   const [nativeFull, setNativeFull] = useState(false);
   const [fallbackFull, setFallbackFull] = useState(false);
@@ -19,10 +13,7 @@ export function ProjectGallery({
   const count = pictures.length;
   const full = nativeFull || fallbackFull;
 
-  const go = useCallback(
-    (i: number) => setIndex(((i % count) + count) % count),
-    [count],
-  );
+  const go = useCallback((i: number) => setIndex(((i % count) + count) % count), [count]);
 
   const toggleFull = useCallback(async () => {
     const el = box.current;
@@ -49,8 +40,7 @@ export function ProjectGallery({
 
   // Следим за системным полноэкранным режимом (в том числе выход по Esc)
   useEffect(() => {
-    const onChange = () =>
-      setNativeFull(document.fullscreenElement === box.current);
+    const onChange = () => setNativeFull(document.fullscreenElement === box.current);
     document.addEventListener("fullscreenchange", onChange);
     return () => document.removeEventListener("fullscreenchange", onChange);
   }, []);
@@ -135,9 +125,7 @@ export function ProjectGallery({
             src={pictures[index]}
             alt={`${title} — фото ${index + 1}`}
             draggable={false}
-            className={`h-full w-full select-none ${
-              full ? "object-contain" : "object-cover"
-            }`}
+            className={`h-full w-full select-none ${full ? "object-contain" : "object-cover"}`}
           />
         </div>
 
@@ -170,7 +158,7 @@ export function ProjectGallery({
           type="button"
           aria-label={full ? "Выйти из полноэкранного режима" : "На весь экран"}
           onClick={toggleFull}
-          className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/45 text-white transition hover:bg-black/70"
+          className="absolute top-3 right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/45 text-white transition hover:bg-black/70"
         >
           <svg
             width="18"

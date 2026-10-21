@@ -38,14 +38,8 @@ export async function PATCH(request: Request, { params }: RouteContext) {
     where: { slug },
     data: {
       ...parsed.data,
-      repoUrl:
-        parsed.data.repoUrl === undefined
-          ? undefined
-          : parsed.data.repoUrl || null,
-      liveUrl:
-        parsed.data.liveUrl === undefined
-          ? undefined
-          : parsed.data.liveUrl || null,
+      repoUrl: parsed.data.repoUrl === undefined ? undefined : parsed.data.repoUrl || null,
+      liveUrl: parsed.data.liveUrl === undefined ? undefined : parsed.data.liveUrl || null,
     },
   });
 

@@ -21,9 +21,7 @@ export default async function AdminPage() {
     <main className="mx-auto max-w-6xl px-6 py-12">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-xs tracking-[0.28em] text-gold uppercase">
-            Dashboard
-          </p>
+          <p className="text-xs tracking-[0.28em] text-gold uppercase">Dashboard</p>
           <h1 className="mt-2 font-serif text-4xl">Кабинет студии</h1>
         </div>
         <div className="flex gap-3">
@@ -57,10 +55,7 @@ export default async function AdminPage() {
               </div>
               <div className="flex items-center gap-3">
                 <StatusBadge status={project.status} />
-                <Link
-                  href={`/admin/projects/${project.slug}`}
-                  className="text-sm text-gold"
-                >
+                <Link href={`/admin/projects/${project.slug}`} className="text-sm text-gold">
                   Править
                 </Link>
               </div>
@@ -76,10 +71,7 @@ export default async function AdminPage() {
             <p className="text-muted">Пока нет заявок.</p>
           ) : (
             messages.map((item) => (
-              <article
-                key={item.id}
-                className="rounded-[1.5rem] border border-line bg-bg-soft p-5"
-              >
+              <article key={item.id} className="rounded-[1.5rem] border border-line bg-bg-soft p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <p className="font-medium">{item.name}</p>

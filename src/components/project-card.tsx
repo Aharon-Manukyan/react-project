@@ -15,9 +15,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <Cover tone={project.coverTone} title={project.title} pictures={project.pictures || []} />
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-xs tracking-[0.2em] text-muted uppercase">
-            {project.year}
-          </p>
+          <p className="text-xs tracking-[0.2em] text-muted uppercase">{project.year}</p>
           <h3 className="mt-1 font-serif text-2xl">{project.title}</h3>
         </div>
         <StatusBadge status={project.status} />

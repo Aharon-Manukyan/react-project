@@ -16,25 +16,16 @@ const serif = Literata({
 
 export const metadata: Metadata = {
   title: "Brand Designer — Portfolio",
-  description:
-    "Brand Designer Portfolio: public projects.",
+  description: "Brand Designer Portfolio: public projects.",
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-    ],
+    icon: [{ url: "/favicon.ico" }, { url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
     apple: "/apple-touch-icon.png",
   },
 };
 
-
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="ru"
-      className={`${sans.variable} ${serif.variable} h-full antialiased`}
-    >
+    <html lang="ru" className={`${sans.variable} ${serif.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <SiteHeader />
         {children}
