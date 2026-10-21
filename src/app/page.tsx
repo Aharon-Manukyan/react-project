@@ -17,10 +17,10 @@ export default async function Home() {
       <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
         <div>
           <p className="text-xs tracking-[0.28em] text-gold uppercase">
-            Full-stack · Next.js · Prisma
+            Валентина Палатурян
           </p>
           <h1 className="mt-4 max-w-xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl">
-            Atelier — студия, которую можно открыть и пощупать.
+            Brand Designer — Portfolio.
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-8 text-muted">
             Портфолио с живой базой, публичным API и админкой. Не лендинг-макет:
@@ -42,12 +42,12 @@ export default async function Home() {
           </div>
         </div>
         <aside className="rounded-[2rem] border border-line bg-bg-soft p-6">
-          <p className="text-sm text-muted">Что внутри</p>
+          <p className="text-sm text-gold">Что я делаю ?</p>
           <ul className="mt-4 grid gap-3 text-sm">
-            <li>App Router + Server Components</li>
-            <li>REST Route Handlers и Zod</li>
-            <li>SQLite через Prisma</li>
-            <li>Cookie-сессия администратора</li>
+            <li>Branding</li>
+            <li>Graphic Design</li>
+            <li>UI/UX Design</li>
+            <li>Print Design</li>
           </ul>
         </aside>
       </section>
@@ -71,10 +71,9 @@ export default async function Home() {
         className="mx-auto grid max-w-6xl gap-10 px-6 pb-24 lg:grid-cols-2"
       >
         <div>
-          <h2 className="font-serif text-4xl">Давайте поговорим о проекте</h2>
+          <h2 className="font-serif text-4xl">Давайте поговорим о вашем проекте</h2>
           <p className="mt-4 max-w-md text-muted">
-            Форма пишет в базу. Откройте кабинет администратора и увидите заявку
-            без почтового сервиса.
+            Я помогу вам создать бренд и дизайн для вашего проекта.
           </p>
         </div>
         <div className="rounded-[2rem] border border-line bg-bg-soft p-6">

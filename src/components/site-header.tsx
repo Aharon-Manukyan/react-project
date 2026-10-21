@@ -14,7 +14,7 @@ export async function SiteHeader() {
     <header className="sticky top-0 z-20 border-b border-line bg-bg/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="font-serif text-xl tracking-tight">
-          Atelier
+          Brand Designer
         </Link>
         <nav className="flex items-center gap-6 text-sm text-muted">
           {links.map((link) => (

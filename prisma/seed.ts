@@ -6,7 +6,8 @@ const projects = [
   {
     slug: "pulse-board",
     title: "Pulse Board",
-    summary: "Канбан для продуктовых команд: статусы, фильтры и живые метрики спринта.",
+    summary:
+      "Канбан для продуктовых команд: статусы, фильтры и живые метрики спринта.",
     description:
       "Full-stack доска задач с REST API, фильтрами по статусу и ролью администратора. Данные живут в SQLite через Prisma, интерфейс собран на Next.js App Router. Проект показывает CRUD, валидацию Zod и работу с сессиями.",
     stack: "Next.js,TypeScript,Prisma,SQLite,Zod",
@@ -18,9 +19,10 @@ const projects = [
     coverTone: "ember",
   },
   {
-    slug: "atelier-api",
-    title: "Atelier API",
-    summary: "Публичный JSON API портфолио: проекты, статусы и заявки с формы контакта.",
+    slug: "brand-designer-api",
+    title: "Brand Designer API",
+    summary:
+      "Публичный JSON API портфолио: проекты, статусы и заявки с формы контакта.",
     description:
       "Серверная часть на Route Handlers. GET отдаёт опубликованные кейсы, POST принимает заявки и пишет их в базу. Админские маршруты защищены httpOnly cookie и HMAC-подписью.",
     stack: "Next.js,Route Handlers,Prisma,Zod",
@@ -34,7 +36,8 @@ const projects = [
   {
     slug: "studio-os",
     title: "Studio OS",
-    summary: "Админка студии: статистика, входящие сообщения и редактор кейсов.",
+    summary:
+      "Админка студии: статистика, входящие сообщения и редактор кейсов.",
     description:
       "Закрытый кабинет для управления портфолио. Можно добавлять проекты, менять статус, отмечать заявки прочитанными. Это демонстрация auth-потока без стороннего провайдера.",
     stack: "React,Server Components,Cookies,SQLite",
@@ -48,7 +51,8 @@ const projects = [
   {
     slug: "north-notes",
     title: "North Notes",
-    summary: "Концепт заметок для исследователей: теги, поиск и светлая типографика.",
+    summary:
+      "Концепт заметок для исследователей: теги, поиск и светлая типографика.",
     description:
       "Концепт продукта в портфолио. Показывает, как описывать early-stage идеи: цель, стек, ограничения. Можно превратить в отдельный репозиторий.",
     stack: "Next.js,Tailwind CSS",
@@ -69,8 +73,8 @@ async function main() {
     data: {
       name: "Мария Соколова",
       email: "maria@example.com",
-      company: "North Labs",
-      body: "Интересен full-stack стек Atelier. Можно созвониться на следующей неделе?",
+      company: "Brand Designer",
+      body: "Интересен full-stack стек Brand Designer. Можно созвониться на следующей неделе?",
     },
   });
 }
