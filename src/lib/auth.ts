@@ -1,33 +1,23 @@
-import { createHmac, timingSafeEqual } from "crypto";
+import "server-only";
 import { cookies } from "next/headers";
-
-const COOKIE_NAME = "atelier_session";
-
-function secret() {
-  return process.env.AUTH_SECRET ?? "brand-designer-dev-secret-change-me";
-}
-
-function sign(value: string) {
-  return createHmac("sha256", secret()).update(value).digest("hex");
-}
+import { scryptSync, timingSafeEqual } from "crypto";
+import { COOKIE_NAME, SESSION_TTL, signSession, verifySession } from "./session";
 
 export async function isAdmin() {
-  const token = (await cookies()).get(COOKIE_NAME)?.value;
-  if (!token) return false;
-  const expected = sign("admin");
-  const actual = Buffer.from(token);
-  const wanted = Buffer.from(expected);
-  if (actual.length !== wanted.length) return false;
-  return timingSafeEqual(actual, wanted);
+  return verifySession((await cookies()).get(COOKIE_NAME)?.value);
+}
+
+export async function requireAdmin() {
+  if (!(await isAdmin())) throw new Error("UNAUTHORIZED");
 }
 
 export async function createAdminSession() {
-  (await cookies()).set(COOKIE_NAME, sign("admin"), {
+  (await cookies()).set(COOKIE_NAME, await signSession(), {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "strict",
     secure: process.env.NODE_ENV === "production",
     path: "/",
-    maxAge: 60 * 60 * 24 * 7,
+    maxAge: SESSION_TTL,
   });
 }
 
@@ -36,15 +26,9 @@ export async function clearAdminSession() {
 }
 
 export function verifyAdminPassword(password: string) {
-  const expected = process.env.ADMIN_PASSWORD ?? "brand-designer-admin";
-  const actual = Buffer.from(password);
-  const wanted = Buffer.from(expected);
-  if (actual.length !== wanted.length) return false;
-  return timingSafeEqual(actual, wanted);
-}
-
-export async function requireAdmin() {
-  if (!(await isAdmin())) {
-    throw new Error("UNAUTHORIZED");
-  }
+  const stored = process.env.ADMIN_PASSWORD_HASH; // формат "salt:hash" (hex)
+  if (!stored) throw new Error("ADMIN_PASSWORD_HASH is not set");
+  const [salt, hash] = stored.split(":");
+  const actual = scryptSync(password, salt, 64);
+  return timingSafeEqual(actual, Buffer.from(hash, "hex")); // длины всегда равны (64)
 }

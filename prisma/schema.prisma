@@ -35,3 +35,11 @@ model Message {
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  ip        String
+  createdAt DateTime @default(now())
+
+  @@index([ip, createdAt])
+}

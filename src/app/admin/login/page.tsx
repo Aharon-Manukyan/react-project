@@ -11,9 +11,6 @@ export default async function LoginPage() {
     <main className="mx-auto max-w-md px-6 py-24">
       <p className="text-xs tracking-[0.28em] text-gold uppercase">Studio OS</p>
       <h1 className="mt-3 font-serif text-4xl">Вход в кабинет</h1>
-      <p className="mt-3 mb-8 text-muted">
-        Пароль хранится в `.env`. Для демо: brand-designer-admin
-      </p>
       <LoginForm />
     </main>
   );

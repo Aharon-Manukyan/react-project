@@ -16,7 +16,7 @@ export default async function Home() {
     <main>
       <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
         <div>
-          <p className="text-xs tracking-[0.28em] text-gold uppercase">Валентина Палатурян</p>
+          <p className="text-xs tracking-[0.28em] text-gold uppercase">Valentina Palaturyan</p>
           <h1 className="mt-4 max-w-xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl">
             Brand Designer — Portfolio.
           </h1>
@@ -31,20 +31,20 @@ export default async function Home() {
             >
               Смотреть кейсы
             </Link>
-            <Link
+            {/* <Link
               href="/api/projects"
               className="rounded-full border border-line px-6 py-3 text-sm"
             >
               JSON API
-            </Link>
+            </Link> */}
           </div>
         </div>
         <aside className="rounded-[2rem] border border-line bg-bg-soft p-6">
-          <p className="text-sm text-gold">Что я делаю ?</p>
+          <p className="text-sm text-gold">What services I provide ? </p>
           <ul className="mt-4 grid gap-3 text-sm">
-            <li>Branding</li>
-            <li>Graphic Design</li>
-            <li>UI/UX Design</li>
+            <li>Logo Design</li>
+            <li>Full Branding</li>
+            <li>Illustrations</li>
             <li>Print Design</li>
           </ul>
         </aside>

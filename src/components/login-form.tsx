@@ -49,7 +49,6 @@ export function LoginForm() {
         {loading ? "Входим..." : "Войти"}
       </button>
       {error ? <p className="text-ember">{error}</p> : null}
-      <p className="text-sm text-muted">Демо-пароль: brand-designer-admin</p>
     </form>
   );
 }
