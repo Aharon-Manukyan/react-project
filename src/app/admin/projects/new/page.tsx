@@ -5,7 +5,7 @@ import { isAdmin } from "@/lib/auth";
 export const dynamic = "force-dynamic";
 
 export default async function NewProjectPage() {
-  if (!(await isAdmin())) redirect("/admin/login");
+  if (!(await isAdmin())) redirect("/login");
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">

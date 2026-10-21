@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { LogoutButton } from "@/components/logout-button";
 import { MessageActions } from "@/components/message-actions";
 import { StatusBadge } from "@/components/status-badge";
 import { isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/db";
+import { AdminMenu } from "@/components/admin-menu";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
-  if (!(await isAdmin())) redirect("/admin/login");
+  if (!(await isAdmin())) redirect("/login");
 
   const [projects, messages, unread] = await Promise.all([
     prisma.project.findMany({ orderBy: { updatedAt: "desc" } }),
@@ -31,7 +31,7 @@ export default async function AdminPage() {
           >
             Новый проект
           </Link>
-          <LogoutButton />
+          <AdminMenu />
         </div>
       </div>
 

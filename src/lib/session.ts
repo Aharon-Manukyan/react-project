@@ -13,8 +13,8 @@ function key() {
   return new TextEncoder().encode(s);
 }
 
-export async function signSession() {
-  return new SignJWT({ role: "admin" })
+export async function signSession(version: number) {
+  return new SignJWT({ role: "admin", v: version })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuer(ISSUER)
     .setAudience(AUDIENCE)
@@ -24,15 +24,16 @@ export async function signSession() {
 }
 
 export async function verifySession(token?: string) {
-  if (!token) return false;
+  if (!token) return null;
   try {
     const { payload } = await jwtVerify(token, key(), {
       algorithms: ["HS256"],
       issuer: ISSUER,
       audience: AUDIENCE,
     });
-    return payload.role === "admin";
+    if (payload.role !== "admin") return null;
+    return { version: typeof payload.v === "number" ? payload.v : 0 };
   } catch {
-    return false;
+    return null;
   }
 }

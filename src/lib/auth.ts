@@ -1,10 +1,22 @@
 import "server-only";
 import { cookies } from "next/headers";
-import { scryptSync, timingSafeEqual } from "crypto";
+import { prisma } from "@/lib/db";
+import { checkPassword } from "./password";
 import { COOKIE_NAME, SESSION_TTL, signSession, verifySession } from "./session";
 
+async function getCredential() {
+  const row = await prisma.adminCredential.findUnique({ where: { id: 1 } });
+  if (row) return { hash: row.passwordHash, version: row.version };
+  const envHash = process.env.ADMIN_PASSWORD_HASH;
+  if (!envHash) throw new Error("ADMIN_PASSWORD_HASH is not set");
+  return { hash: envHash, version: 0 };
+}
+
 export async function isAdmin() {
-  return verifySession((await cookies()).get(COOKIE_NAME)?.value);
+  const session = await verifySession((await cookies()).get(COOKIE_NAME)?.value);
+  if (!session) return false;
+  const cred = await getCredential();
+  return session.version === cred.version;
 }
 
 export async function requireAdmin() {
@@ -12,7 +24,8 @@ export async function requireAdmin() {
 }
 
 export async function createAdminSession() {
-  (await cookies()).set(COOKIE_NAME, await signSession(), {
+  const { version } = await getCredential();
+  (await cookies()).set(COOKIE_NAME, await signSession(version), {
     httpOnly: true,
     sameSite: "strict",
     secure: process.env.NODE_ENV === "production",
@@ -25,10 +38,7 @@ export async function clearAdminSession() {
   (await cookies()).delete(COOKIE_NAME);
 }
 
-export function verifyAdminPassword(password: string) {
-  const stored = process.env.ADMIN_PASSWORD_HASH; // формат "salt:hash" (hex)
-  if (!stored) throw new Error("ADMIN_PASSWORD_HASH is not set");
-  const [salt, hash] = stored.split(":");
-  const actual = scryptSync(password, salt, 64);
-  return timingSafeEqual(actual, Buffer.from(hash, "hex")); // длины всегда равны (64)
+export async function verifyAdminPassword(password: string) {
+  const { hash } = await getCredential();
+  return checkPassword(password, hash);
 }
