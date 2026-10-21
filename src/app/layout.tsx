@@ -15,9 +15,9 @@ const serif = Literata({
 });
 
 export const metadata: Metadata = {
-  title: "Atelier — full-stack портфолио",
+  title: "Brand Designer — Portfolio",
   description:
-    "Next.js студия: публичные кейсы, REST API, Prisma и админка для управления проектами.",
+    "Brand Designer Portfolio: public projects.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 const COOKIE_NAME = "atelier_session";
 
 function secret() {
-  return process.env.AUTH_SECRET ?? "atelier-dev-secret-change-me";
+  return process.env.AUTH_SECRET ?? "brand-designer-dev-secret-change-me";
 }
 
 function sign(value: string) {
@@ -36,7 +36,7 @@ export async function clearAdminSession() {
 }
 
 export function verifyAdminPassword(password: string) {
-  const expected = process.env.ADMIN_PASSWORD ?? "atelier-admin";
+  const expected = process.env.ADMIN_PASSWORD ?? "brand-designer-admin";
   const actual = Buffer.from(password);
   const wanted = Buffer.from(expected);
   if (actual.length !== wanted.length) return false;

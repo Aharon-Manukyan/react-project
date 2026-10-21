@@ -1,4 +1,4 @@
-# Atelier
+# Brand-Designer
 
 Full-stack портфолио на **Next.js 16**, **React 19**, **Prisma** и **SQLite**.
 
@@ -16,7 +16,7 @@ npm run dev
 Откройте [http://localhost:3000](http://localhost:3000).
 
 - Админка: `/admin/login`
-- Демо-пароль: `atelier-admin`
+- Демо-пароль: `brand-designer-admin`
 - API проектов: `/api/projects`
 
 ## Стек
