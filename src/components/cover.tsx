@@ -28,7 +28,6 @@ export function Cover({
   if (pictures.length > 0) {
     return (
       <div className="relative isolate min-h-44 overflow-hidden rounded-[1.5rem]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <ProjectGallery pictures={pictures} title={title} />
       </div>
     );

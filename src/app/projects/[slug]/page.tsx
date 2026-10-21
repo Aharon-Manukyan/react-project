@@ -4,7 +4,6 @@ import { Cover } from "@/components/cover";
 import { StatusBadge } from "@/components/status-badge";
 import { prisma } from "@/lib/db";
 import { parseStack } from "@/lib/types";
-import { ProjectGallery } from "@/components/project-gallery";
 
 export const dynamic = "force-dynamic";
 
