@@ -20,7 +20,7 @@ export const projectSchema = z.object({
     .min(2)
     .max(80)
     .regex(/^[a-z0-9-]+$/, "Только латиница, цифры и дефис"),
-  summary: z.string().trim().min(10).max(180),
+  summary: z.string().trim().min(10).max(300),
   description: z.string().trim().min(20).max(4000),
   stack: z.string().trim().min(2).max(240),
   status: z.enum(PROJECT_STATUSES),
@@ -29,5 +29,8 @@ export const projectSchema = z.object({
   liveUrl: z.string().trim().optional().or(z.literal("")),
   featured: z.boolean().default(false),
   coverTone: z.enum(COVER_TONES).default("ember"),
-  pictures: z.array(z.string()).default([]), // новое поле
+  pictures: z
+    .array(z.string().regex(/^\/api\/img\/projects\/[\w-]+\.(webp|jpg|png)$/))
+    .max(30)
+    .default([]),
 });

@@ -12,7 +12,7 @@ export function ProjectCard({ project }: { project: Project }) {
       href={`/projects/${project.slug}`}
       className="group flex flex-col gap-4 rounded-[1.75rem] border border-line bg-bg-soft/70 p-4 transition hover:-translate-y-0.5 hover:border-gold/40"
     >
-      <Cover tone={project.coverTone} title={project.title} />
+      <Cover tone={project.coverTone} title={project.title} pictures={project.pictures || []} />
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs tracking-[0.2em] text-muted uppercase">

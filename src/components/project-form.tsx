@@ -29,6 +29,7 @@ export function ProjectForm({ project }: { project?: Project }) {
       liveUrl: String(form.get("liveUrl") ?? ""),
       featured: form.get("featured") === "on",
       coverTone: String(form.get("coverTone") ?? "ember"),
+      pictures: pictures,
     };
 
     const response = await fetch(
@@ -119,8 +120,8 @@ export function ProjectForm({ project }: { project?: Project }) {
         </label>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="GitHub URL" name="repoUrl" defaultValue={project?.repoUrl ?? ""} />
-        <Field label="Live URL" name="liveUrl" defaultValue={project?.liveUrl ?? ""} />
+        <Field label="Behance URL" name="repoUrl" defaultValue={project?.repoUrl ?? ""} />
+        <Field label="Instagram URL" name="liveUrl" defaultValue={project?.liveUrl ?? ""} />
       </div>
       <PicturesField value={pictures} onChange={setPictures} />
       <label className="flex items-center gap-2 text-sm">

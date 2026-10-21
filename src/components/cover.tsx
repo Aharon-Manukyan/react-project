@@ -1,4 +1,5 @@
 import { CoverTone } from "@/lib/types";
+import { ProjectGallery } from "@/components/project-gallery";
 
 const tones: Record<CoverTone, string> = {
   ember: "from-[#5a2b1f] via-[#d97757] to-[#f0c7a4]",
@@ -10,11 +11,30 @@ const tones: Record<CoverTone, string> = {
 export function Cover({
   tone,
   title,
+  pictures = [],
+  gallery = false,
 }: {
   tone: string;
   title: string;
+  pictures?: string[];
+  gallery?: boolean;
 }) {
-  const gradient = tones[(tone as CoverTone) ?? "ember"] ?? tones.ember;
+  // Страница проекта: полная карусель
+  if (gallery && pictures.length > 0) {
+    return <ProjectGallery pictures={pictures} title={title} />;
+  }
+
+  // Карточки: первое фото как обложка
+  if (pictures.length > 0) {
+    return (
+      <div className="relative isolate min-h-44 overflow-hidden rounded-[1.5rem]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <ProjectGallery pictures={pictures} title={title} />
+      </div>
+    );
+  }
+
+  const gradient = tones[tone as CoverTone] ?? tones.ember;
   return (
     <div
       className={`relative isolate overflow-hidden rounded-[1.5rem] bg-linear-to-br ${gradient} min-h-44`}
